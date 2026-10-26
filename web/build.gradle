@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+bootJar {
+    enabled = true
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':auth')
+    implementation project(':content')
+    implementation project(':media')
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    runtimeOnly 'org.postgresql:postgresql'
+}

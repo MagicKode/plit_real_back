@@ -1,1 +1,8 @@
 rootProject.name = 'plit_real_back'
+
+include 'core'
+include 'auth'
+include 'content'
+include 'media'
+include 'web'
+
