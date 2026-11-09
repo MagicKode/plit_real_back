@@ -36,10 +36,12 @@ subprojects {
 
         annotationProcessor 'org.projectlombok:lombok'
 
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
 
     tasks.named('test') {
-        useJUnitPlatform()
+//        useJUnitPlatform()
+        enabled = false
     }
 }

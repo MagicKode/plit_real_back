@@ -9,5 +9,4 @@ public class PlitRealBackApplication {
     public static void main(String[] args) {
         SpringApplication.run(PlitRealBackApplication.class, args);
     }
-
 }
