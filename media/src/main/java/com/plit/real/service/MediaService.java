@@ -8,6 +8,6 @@ import java.io.IOException;
 import java.util.List;
 
 public interface MediaService {
-    UploadResponse uploadFile(MultipartFile file) throws IOException;
+    UploadResponse uploadFile(MultipartFile file, String category) throws IOException;
     List<MediaResponse> getAllFiles();
 }

@@ -19,12 +19,14 @@ public class MediaController {
     private final MediaService mediaService;
 
     @PostMapping("/upload")
-    public ResponseEntity<UploadResponse> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
+    public ResponseEntity<UploadResponse> uploadFile(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam(value = "category", defaultValue = "other") String category) throws IOException {
 
         if (file.isEmpty()) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok(mediaService.uploadFile(file));
+        return ResponseEntity.ok(mediaService.uploadFile(file, category));
     }
 
     @GetMapping

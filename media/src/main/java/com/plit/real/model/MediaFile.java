@@ -19,6 +19,8 @@ public class MediaFile {
 
     private String originalName;
 
+    private String category;
+
     private LocalDateTime uploadedAt;
 
     @PrePersist

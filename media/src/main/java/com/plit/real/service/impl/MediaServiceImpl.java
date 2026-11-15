@@ -33,7 +33,7 @@ public class MediaServiceImpl implements MediaService{
     }
 
     @Override
-    public UploadResponse uploadFile(MultipartFile file) {
+    public UploadResponse uploadFile(MultipartFile file, String category) {
         try {
             String originalFilename = file.getOriginalFilename();
             String extension = "";
@@ -49,10 +49,11 @@ public class MediaServiceImpl implements MediaService{
             MediaFile mediaFile = new MediaFile();
             mediaFile.setUrl("/uploads/" + newFilename);
             mediaFile.setOriginalName(originalFilename);
+            mediaFile.setCategory(category);
             MediaFile saved = mediaRepository.save(mediaFile);
 
             // Возаращаем URL (относительный путь)
-            return new UploadResponse(saved.getId(), saved.getUrl());
+            return new UploadResponse(saved.getId(), saved.getUrl(), saved.getCategory());
         } catch (IOException e) {
             throw new RuntimeException("Не удалось сохранить файл", e);
         }
