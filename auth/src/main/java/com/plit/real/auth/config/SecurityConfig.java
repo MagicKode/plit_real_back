@@ -35,6 +35,8 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/media/**").permitAll()
                         .requestMatchers("/uploads/**").permitAll()
                         .requestMatchers("/api/v1/about/**").permitAll()
+                        .requestMatchers("/api/v1/prices/**").permitAll()
+                        .requestMatchers("/api/v1/contacts/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
