@@ -21,16 +21,22 @@ public class MediaController {
     @PostMapping("/upload")
     public ResponseEntity<UploadResponse> uploadFile(
             @RequestParam("file") MultipartFile file,
-            @RequestParam(value = "category", defaultValue = "other") String category) throws IOException {
+            @RequestParam(value = "category", defaultValue = "other") String category,
+            @RequestParam(value = "title", required = false) String title) {
 
         if (file.isEmpty()) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok(mediaService.uploadFile(file, category));
+        try {
+            return ResponseEntity.ok(mediaService.uploadFile(file, category, title));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @GetMapping
-    public ResponseEntity<List<MediaResponse>> getAllFiles() {
-        return ResponseEntity.ok(mediaService.getAllFiles());
+    public ResponseEntity<List<MediaResponse>> getAllFiles(@PathVariable Long id) {
+        mediaService.deleteFile(id);
+        return ResponseEntity.notFound().build();
     }
 }

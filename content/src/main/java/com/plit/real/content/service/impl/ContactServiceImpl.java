@@ -16,13 +16,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public ContactInfo getContacts() {
         return contactRepository.findById(DEFAULT_ID)
-                .orElseGet(() -> new ContactInfo(
-                        DEFAULT_ID,
-                        "+375 (25) 500-90-52",
-                        "https://t.me/ваш_ник",
-                        "viber://chat?number=%2B375255009052",
-                        "Минск и Минский район"
-                ));
+                .orElseGet(() -> new ContactInfo(DEFAULT_ID, "", "", "", ""));
     }
 
     @Override

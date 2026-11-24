@@ -17,11 +17,11 @@ public class AboutInfoServiceImpl implements AboutInfoService {
         return aboutInfoRepository.findAll().stream().findFirst()
                 .orElseGet(() -> {
                     AboutInfo defaultInfo = new AboutInfo();
-                    defaultInfo.setMasterName("Александр");
-                    defaultInfo.setExperience("более 10 лет");
-                    defaultInfo.setDescription("Профессиональный плиточник и сантехник. Работаю официально (ИП). Аккуратно, в срок, с гарантией.");
-                    defaultInfo.setPhotoUrl("master.jpeg");
-                    return aboutInfoRepository.save(defaultInfo);
+                    defaultInfo.setMasterName("");
+                    defaultInfo.setExperience("");
+                    defaultInfo.setDescription("");
+                    defaultInfo.setPhotoUrl("");
+                    return defaultInfo;
                 });
     }
 

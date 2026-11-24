@@ -9,4 +9,6 @@ public class MediaResponse {
     private Long id;
     private String url;
     private String originalName;
+    private String category;
+    private String title;
 }
