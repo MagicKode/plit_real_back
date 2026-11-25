@@ -30,6 +30,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
+                        .requestMatchers("/api/v1/**").permitAll()
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers("/api/v1/services/**").permitAll()
                         .requestMatchers("/api/v1/media/**").permitAll()
@@ -38,6 +39,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/v1/prices/**").permitAll()
                         .requestMatchers("/api/v1/contacts/**").permitAll()
                         .requestMatchers("/api/v1/portfolio/**").permitAll()
+                        .requestMatchers("/api/v1/hero/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
